@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS projects_dev;
-CREATE DATABASE projects_dev;
+DROP DATABASE IF EXISTS portfolio_dev;
+CREATE DATABASE portfolio_dev;
 
-\c projects_dev;
+\c portfolio_dev;
 
 CREATE TABLE projects (
  id SERIAL PRIMARY KEY,
@@ -9,7 +9,8 @@ CREATE TABLE projects (
  technology TEXT NOT NULL,
  module INT,
  description TEXT,
- revisit BOOLEAN DEFAULT FALSE
+ revisit BOOLEAN DEFAULT FALSE,
+ repo_link TEXT NOT NULL
 );
 
 CREATE TABLE interests (
