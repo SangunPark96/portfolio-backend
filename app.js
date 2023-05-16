@@ -12,8 +12,8 @@ app.get("/", (req, res) => {
     res.send("welcome to the server")
 })
 
-app.use("/interests", interestController)
-app.use("/projects", projectController);
+app.use('/interests', interestController)
+app.use('/projects', projectController);
 
 app.get("*", (req, res) => {
   console.log("404!");
