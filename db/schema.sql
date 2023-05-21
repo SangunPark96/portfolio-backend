@@ -19,5 +19,6 @@ CREATE TABLE interests (
     media_type TEXT NOT NULL,
     genre TEXT,
     still_enjoy BOOLEAN DEFAULT TRUE,
-    img_link TEXT
+    img_link TEXT,
+    summary TEXT
 );
