@@ -1,5 +1,6 @@
 const express = require("express");
 const interests = express.Router();
+const {validateURL} = require("../validations/validations.js")
 
 const { 
     getAllInterests,
@@ -32,7 +33,7 @@ interests.get("/:id", async (req, res) => {
   });
   
   // create
-interests.post("/", async (req, res) => {
+interests.post("/", validateURL, async (req, res) => {
     const { error, result } = await createInterest(req.body);
     if (error) {
       res.status(500).json({ error: "server error" });
@@ -42,7 +43,7 @@ interests.post("/", async (req, res) => {
   });
 
   // update 
-interests.put("/:id", async (req, res) => {
+interests.put("/:id", validateURL, async (req, res) => {
     const { id } = req.params;
     const { error, result } = await updateInterest(id, req.body);
     if (error) {
