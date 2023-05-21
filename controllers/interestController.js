@@ -1,6 +1,6 @@
 const express = require("express");
 const interests = express.Router();
-const {validateURL} = require("../validations/validations.js")
+const {validateInterestURL} = require("../validations/InterestValidations.js")
 
 const { 
     getAllInterests,
@@ -33,7 +33,7 @@ interests.get("/:id", async (req, res) => {
   });
   
   // create
-interests.post("/", validateURL, async (req, res) => {
+interests.post("/", validateInterestURL, async (req, res) => {
     const { error, result } = await createInterest(req.body);
     if (error) {
       res.status(500).json({ error: "server error" });
@@ -43,7 +43,7 @@ interests.post("/", validateURL, async (req, res) => {
   });
 
   // update 
-interests.put("/:id", validateURL, async (req, res) => {
+interests.put("/:id", validateInterestURL, async (req, res) => {
     const { id } = req.params;
     const { error, result } = await updateInterest(id, req.body);
     if (error) {

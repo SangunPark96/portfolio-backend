@@ -1,6 +1,6 @@
 const express = require("express");
 const projects = express.Router();
-const {validateURL} = require("../validations/validations.js")
+const {validateProjectURL} = require("../validations/ProjectValidations.js")
 
 const { 
     getAllProjects,
@@ -33,7 +33,7 @@ projects.get("/:id", async (req, res) => {
   });
   
   // create
-projects.post("/", validateURL, async (req, res) => {
+projects.post("/", validateProjectURL, async (req, res) => {
     const { error, result } = await createProject(req.body);
     if (error) {
       res.status(500).json({ error: "server error" });
@@ -43,7 +43,7 @@ projects.post("/", validateURL, async (req, res) => {
   });
 
   // update 
-projects.put("/:id", validateURL, async (req, res) => {
+projects.put("/:id", validateProjectURL, async (req, res) => {
     const { id } = req.params;
     const { error, result } = await updateProject(id, req.body);
     if (error) {

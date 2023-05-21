@@ -1,7 +1,7 @@
-const validateURL = (req, res, next) => {
+const validateInterestURL = (req, res, next) => {
     if (
-      req.body.url.substring(0, 7) === "http://" ||
-      req.body.url.substring(0, 8) === "https://"
+      req.body.img_link.substring(0, 7) === "http://" ||
+      req.body.img_link.substring(0, 8) === "https://"
     ) {
       return next();
     } else {
@@ -12,5 +12,5 @@ const validateURL = (req, res, next) => {
   };
   
   module.exports = {
-    validateURL,
+    validateInterestURL,
   };
